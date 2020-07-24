@@ -1,3 +1,6 @@
+Typescript uses strict types.
+Javascript does not.
+
 to automatically watch and compile typescript to javscript: 
 ```tsc (typescriptFileName) (javascriptFileName) -w```
 
