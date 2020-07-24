@@ -1,23 +1,29 @@
-/**
- * Typescript uses strict types.
- * Javascript does not.
- * Typescript uses inference (implicitly) to define the data type of the variable
- * We can do this explicitly as well. On va le faire plus tard.
- */
-var character = "Mario";
-var age = 30;
-var isBlackBelt = false;
-// character = 20; won't work
-character = "Luigi";
-// age = "yoshi"; won't work
-age = 40;
-// isBlackBelt = "yes"; won't work
-isBlackBelt = true;
-// can also do strict types for function arguments. This is more explicit
-// Diametre has to be a number or else we will get an error and it won't compile
-// in the javascript you will notice that the checks are not there. This is because it is done exclusively in the typescript file, and if there are any errors, it will not compiile to the javascript file.
-var circumference = function (diametre) {
-    return diametre * Math.PI;
+var names = ["Luigi", "Mario", "Yoshi"];
+names.push("toad");
+// names.push(3); don't work
+// names[0] = 3; don't work
+var numbers = [10, 20, 30, 40];
+numbers.push(25);
+// numbers.push("shaun"); don't work
+// numbers[0] = "Pelling"; don't work
+var mixed = ["Ken", 4, true, "Chun-li", 9, 7];
+mixed.push("Ryu");
+// mixed.push(10); works
+// mixed[mixed.length - 1] = false; works
+// OBJECTS
+// properties behave much like variables: name has to be a string
+var ninja = {
+    name: "Mario",
+    belt: "black",
+    age: 30
 };
-var circ = circumference(3.4);
-console.log(circumference);
+// ninja.age = 40; works
+// ninja.belt = false; will not work
+//IMPORTANT: with typescript, you can't add additional properties to an object once it is defined like you can in javascript
+// ninja.skills = ["fighting", "running", "sneaking"]; won't work
+// you can update ninja to become a new object. but it have the exact same structure (properties) with exact value types as the initial object
+ninja = {
+    name: "Luigi",
+    belt: "green",
+    age: 40
+};
