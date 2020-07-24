@@ -1,1 +1,9 @@
-// Typescript code will go here.
+const character = "Luigi";
+console.log(character);
+
+const inputs = document.querySelectorAll("input");
+console.log(inputs);
+
+inputs.forEach((currentInput) => {
+	console.log(currentInput);
+});
