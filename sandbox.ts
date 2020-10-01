@@ -15,7 +15,7 @@ mixed.push("Ryu");
 // mixed[mixed.length - 1] = false; works
 
 // OBJECTS
-// properties behave much like variables: name has to be a string
+// properties behave much like variables: pour l'exemple ci-dessous, name has to be a string, belt aussi et age a number.
 let ninja = {
 	name: "Mario",
 	belt: "black",
@@ -27,7 +27,7 @@ let ninja = {
 //IMPORTANT: with typescript, you can't add additional properties to an object once it is defined like you can in javascript
 // ninja.skills = ["fighting", "running", "sneaking"]; won't work
 
-// you can update ninja to become a new object. but it have the exact same structure (properties) with exact value types as the initial object
+// NOTE: you can update ninja to become a new object. but it have the exact same structure (properties) with exact value types as the initial object
 ninja = {
 	name: "Luigi",
 	belt: "green",
