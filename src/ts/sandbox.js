@@ -20,6 +20,7 @@ var add = function (a, b, c) {
     console.log(c);
 };
 add(5, 10);
+add(5, 10, 10);
 var minus = function (a, b) {
     return a - b;
 };
