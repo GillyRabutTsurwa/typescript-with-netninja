@@ -1,48 +1,33 @@
-// Typescript code will go here.
-// the type of greet is implicitly a function.
-let greet = () => {
-	console.log("Bonjour");
+// Type aliases nous aide empecher de faire trop longues des parametres des variables et arguments dans nos fonctions (comme un exemple). En gros, en met nos paramètres dans leurs propes variables que l'on peut utiliser autant que l'on veut. Regardez
+
+// NOTE: Voici le code sans type aliases
+
+const logDetails = (uid: string | number, item: string) => {
+	console.log(`${item} has a uid of ${uid}`);
 };
 
-greet();
-
-// explicitly (mon moyen prefere), we do it like this
-// Remarquez que le type est ecrit avec une lettre majuscule.
-let salut: Function;
-salut = () => {
-	console.log("Bonjour-sa-va?");
+const greet = (user: { name: string; uid: string | number }) => {
+	console.log(`${user.name} says hello`);
 };
 
-salut();
-
-// if we don't return anything in a function, typescript returns void under the hood.
-// This void when compiled to javascript, becomes undefined.
-
-const add = (a: number, b: number, c?: number | string) => {
-	// NEW: the ? is how we define an optional parametre in typescript
-	// default parametres are like they are in javascript.
-	// if the optional paremetre isn't set in the argument, the value is undefined.
-	console.log(a + b);
-	console.log(c);
+const greetAgain = (user: { name: string; uid: string | number }) => {
+	console.log(`${user.name} says hello`);
 };
 
-add(5, 10);
-add(5, 10, 10);
+// NEWNOTE: Et maintenat voici le meme code avec type aliases. Remarquez comment il est plus court, précis et lisible. Mais tout d'abord. Faut déclarer nos aliases.
 
-const minus = (a: number, b: number) => {
-	return a - b;
+// NEW: type alias
+type StringOrNum = string | number;
+type objectWithName = { name: string; uid: StringOrNum };
+
+const logDetailsAvecAlias = (uid: StringOrNum, item: string) => {
+	console.log(`${item} has a uid of ${uid}`);
 };
 
-// Typescript knows that our function returns a number. so the result variable is implicitly set ot be a number.
-let result = minus(10, 7);
-console.log(result);
-
-// NOTEIMPORTANT: Finally if we want to explicitly define a return type of a function (I don't know when I would do this though, but I like it), we can do it at after defining our parametres. Like so:
-// syntaxe - : (data-type)
-
-const producc = (a: number, b: number): number => {
-	return a * b;
+const greetAvecAlias = (user: objectWithName) => {
+	console.log(`${user.name} says hello`);
 };
 
-let multi = producc(4, 9);
-console.log(multi);
+const greetAgainAvecAlias = (user: objectWithName) => {
+	console.log(`${user.name} says hello`);
+};
