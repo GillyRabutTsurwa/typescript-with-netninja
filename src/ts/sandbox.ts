@@ -1,33 +1,47 @@
-// Type aliases nous aide empecher de faire trop longues des parametres des variables et arguments dans nos fonctions (comme un exemple). En gros, en met nos paramètres dans leurs propes variables que l'on peut utiliser autant que l'on veut. Regardez
+// let greet: Function;
 
-// NOTE: Voici le code sans type aliases
+// exemple 1
+// THis is a function signature
+let gree: (param1: string, param2: string) => void;
 
-const logDetails = (uid: string | number, item: string) => {
-	console.log(`${item} has a uid of ${uid}`);
+// La fonction qui suit la signature dessûs. (Elle doit la suivre)
+gree = (name: string, greeting: string) => {
+	console.log(`${name} says ${greeting}`);
 };
 
-const greet = (user: { name: string; uid: string | number }) => {
-	console.log(`${user.name} says hello`);
+gree("Gilbert", "Bonjour");
+// exemple 2
+
+let calc: (param1: number, param2: number, param3: string) => number;
+
+calc = (numOne: number, numTwo: number, action: string) => {
+	if (action === "add") {
+		return numOne + numTwo;
+	}
+	else if (action === "subtract") {
+		return numOne - numTwo;
+	}
+	else {
+		return numOne * numTwo;
+	}
 };
 
-const greetAgain = (user: { name: string; uid: string | number }) => {
-	console.log(`${user.name} says hello`);
+let example1 = calc(8, 3, "add");
+console.log(example1);
+
+// exemple 3
+
+// 1. Defining the function signature
+let logDetails: (param1: { name: string; age: number }) => void;
+
+// Reminder. this is a type alias. look at previous branch to refresh
+type person = { name: string; age: number };
+
+// 2. Defining the function itself
+// we are using a type alias but that's not important in the section
+logDetails = (ninja: person) => {
+	console.log(`I am ${ninja.name} et j'ai ${ninja.age}`);
 };
 
-// NEWNOTE: Et maintenat voici le meme code avec type aliases. Remarquez comment il est plus court, précis et lisible. Mais tout d'abord. Faut déclarer nos aliases.
-
-// NEW: type alias
-type StringOrNum = string | number;
-type objectWithName = { name: string; uid: StringOrNum };
-
-const logDetailsAvecAlias = (uid: StringOrNum, item: string) => {
-	console.log(`${item} has a uid of ${uid}`);
-};
-
-const greetAvecAlias = (user: objectWithName) => {
-	console.log(`${user.name} says hello`);
-};
-
-const greetAgainAvecAlias = (user: objectWithName) => {
-	console.log(`${user.name} says hello`);
-};
+// 3. Calling the function
+logDetails({ name: "Shaun Pelling", age: 29 });
