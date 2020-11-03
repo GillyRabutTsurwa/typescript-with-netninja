@@ -1,5 +1,3 @@
-// Explicit types are very useful for initialising variables of whose the value we don't know initially. Comme ci.
-
 let character: string;
 let age: number;
 let isLoggedIn: boolean;
@@ -9,7 +7,8 @@ age = 40; // works;
 
 // arrays
 // array of just one data type
-//NOTE: below line just enforces that ninjas should be an array of strings. It actually doesn't give us an empty array. So if we try to push something to it, it won't work. So we need to make our empty array. Like so... (I will comment out this line below for reference)
+
+//NOTE: below line just enforces that ninjas should be an array of strings. It actually doesn't give us an empty array. So if we try to push something to it, it won't work. So we need to make our empty array ON TOP of declaring that the value of this variable should be exclusively an array of strings. Like so... (I will comment out this line below for reference).
 // let ninjas: string[];
 
 let ninjas: string[] = [];
