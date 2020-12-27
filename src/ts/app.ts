@@ -39,4 +39,4 @@ const amount = document.querySelector("#amount") as HTMLInputElement;
 forme.addEventListener("submit", (e: Event) => {
 	e.preventDefault();
 	console.log(type.value, toFrom.value, details.value, amount.valueAsNumber)
-});
+}); 
