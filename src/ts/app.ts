@@ -1,4 +1,5 @@
 class Invoice {
+	// this is typescript specific. we don't define the type in Javascript. in javascript, these three lines would not exist.
 	client: string;
 	details: string;
 	amount: number;
