@@ -1,9 +1,16 @@
-// moved the class definiton to models.invoice.ts. we will be using import exports. Just like in Javascript.
-// NOTE: it the path of the file is .js and NOT .ts. This is because at the end our code will be transpiled to Javascript. Just a reminder.
-// import { Invoice } from "./models/invoice.js"; 
-// NOTE: I move app.ts out of the ts file and deleted to ts file. so the file strcuture is exactly like the ninja's
-// juss kidding not quite. all my files are under 1 ts file in src. that's the only difference
-// also changed ths script tag in html by adding the type module
+// NEW: interfaces. a structure or blueprint for defining our classes
+//NOTE: we do not use interfaces to create classes
+// all we are saying is: if we make an isPerson class, it has to have:
+// a name property which is a string, an age property which is a number, a speak method with a parametre of value string which returns void, and a spend method with a parametre of value number which returns a number.
+// NOTE: stopped @2.53
+interface IsPerson {
+	name: string,
+	age: number,
+	// name of the parametre doesn't matter
+	speak(a: string): void,
+	spend(a: number): number
+}
+
 import { Invoice } from "./models/invoice.js"; 
 
 const invoiceOne = new Invoice("Peach", "Castle Infrastructure", 300);
