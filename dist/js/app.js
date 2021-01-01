@@ -1,32 +1,21 @@
-"use strict";
-var Invoice = (function () {
-    function Invoice(client, details, amount) {
-        this.client = client;
-        this.details = details;
-        this.amount = amount;
-    }
-    Invoice.prototype.format = function () {
-        return this.client + " owes " + this.amount + " for " + this.details;
-    };
-    return Invoice;
-}());
-var invoiceOne = new Invoice("Peach", "Castle Infrastructure", 300);
-var invoiceTwo = new Invoice("Bowser", "Weapons Maintainence", 700);
+import { Invoice } from "./models/invoice.js";
+const invoiceOne = new Invoice("Peach", "Castle Infrastructure", 300);
+const invoiceTwo = new Invoice("Bowser", "Weapons Maintainence", 700);
 console.log(invoiceOne, invoiceTwo);
-var invoices = [];
+let invoices = [];
 invoices.push(invoiceOne);
 invoices.push(invoiceTwo);
 console.log(invoices);
-invoices.forEach(function (currentInvoice) {
+invoices.forEach((currentInvoice) => {
     console.log(currentInvoice.client, currentInvoice.amount, currentInvoice.format());
 });
-var forme = document.querySelector(".new-item-form");
+const forme = document.querySelector(".new-item-form");
 console.log(forme.children);
-var type = document.querySelector("#type");
-var toFrom = document.querySelector("#tofrom");
-var details = document.querySelector("#details");
-var amount = document.querySelector("#amount");
-forme.addEventListener("submit", function (e) {
+const type = document.querySelector("#type");
+const toFrom = document.querySelector("#tofrom");
+const details = document.querySelector("#details");
+const amount = document.querySelector("#amount");
+forme.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log(type.value, toFrom.value, details.value, amount.valueAsNumber);
 });

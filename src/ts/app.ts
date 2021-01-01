@@ -1,27 +1,10 @@
-class Invoice {
-	//NEW: access modifiers, ça me fait rappeler de Java
-	//NOTE: they are public by default.
-	// setting one to private means it is only accessible WITHIN the class. If we try to directly access it outside the class we get an erreur.
-	//NOTE: setting to readonly allows us to access the variable value (anywhere) but NOT modify it. So if we try to change the value of client somewhere else in our code, we get an error. Essaie de le changer pour voir ce qui arrive
-
-	//NOTE: There is a shorthand to declare the class' variables with their respective access modifiers. Even though I like the long way, I will comment it out just for this branch. Le voici. NOTE: This only works when including access modifiers. Else, it won't work.
-	// readonly client: string;
-	// private details: string;
-	// public amount: number;
-
-	// constructor(c: string, d: string, a: number) {
-	// 	this.client = c;
-	// 	this.details = d;
-	// 	this.amount = a;
-	// }
-
-	//NOTE: not a really a fan of this short hand. moreso because there is no code inside the constructor function, mais néanmoins, c'est bon à savoir
-	constructor(readonly client: string, private details: string, public amount: number) {}
-
-	format() {
-		return `${this.client} owes ${this.amount} for ${this.details}`
-	}
-}
+// moved the class definiton to models.invoice.ts. we will be using import exports. Just like in Javascript.
+// NOTE: it the path of the file is .js and NOT .ts. This is because at the end our code will be transpiled to Javascript. Just a reminder.
+// import { Invoice } from "./models/invoice.js"; 
+// NOTE: I move app.ts out of the ts file and deleted to ts file. so the file strcuture is exactly like the ninja's
+// juss kidding not quite. all my files are under 1 ts file in src. that's the only difference
+// also changed ths script tag in html by adding the type module
+import { Invoice } from "./models/invoice.js"; 
 
 const invoiceOne = new Invoice("Peach", "Castle Infrastructure", 300);
 const invoiceTwo = new Invoice("Bowser", "Weapons Maintainence", 700);
