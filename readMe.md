@@ -1,1 +1,1 @@
-# Function Basics 
+using es6 modular system in typescript
