@@ -1,3 +1,20 @@
+const moi = {
+    name: "Gilbert",
+    age: 24,
+    speak(text) {
+        console.log(text);
+    },
+    spend(amount) {
+        console.log(`J'ai dépensé ${amount}`);
+        return amount;
+    }
+};
+console.log(moi);
+let someone;
+const greetPerson = (person) => {
+    console.log(`Yo ${person.name}`);
+};
+greetPerson(moi);
 import { Invoice } from "./models/invoice.js";
 const invoiceOne = new Invoice("Peach", "Castle Infrastructure", 300);
 const invoiceTwo = new Invoice("Bowser", "Weapons Maintainence", 700);
