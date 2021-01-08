@@ -1,5 +1,6 @@
 import { Invoice } from "./models/Invoice.js";
 import { Payment } from "./models/Payment.js";
+import { ListTemplate } from "./models/ListTemplate.js";
 function ninjaTeachingIntefaces() {
     let docOne;
     let docTwo;
@@ -20,6 +21,8 @@ function ninjaTeachingIntefaces() {
         console.log(currentInvoice.client, currentInvoice.amount, currentInvoice.format());
     });
 }
+const ul = document.querySelector("ul");
+const list = new ListTemplate(ul);
 const forme = document.querySelector(".new-item-form");
 console.log(forme.children);
 const type = document.querySelector("#type");
@@ -36,4 +39,5 @@ forme.addEventListener("submit", (e) => {
         doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
     }
     console.log(doc);
+    list.render(doc, type.value, "end");
 });

@@ -1,6 +1,7 @@
 import { Invoice } from "./models/Invoice.js"; 
 import { Payment } from "./models/Payment.js"; 
 import { HasFormatter } from "./interfaces/HasFormatter.js"; 
+import { ListTemplate } from "./models/ListTemplate.js";
 
 /** NOTE:
  * this code in function below is useful, but not part of the project moving forward. Hence, I will leave it in this function and run it in case I need to seek references
@@ -38,6 +39,10 @@ function ninjaTeachingIntefaces() {
 	})  
 }
 
+// list template instance
+const ul = document.querySelector("ul")!; // QUESTION: souviens-toi p'quoi le "!" ?
+const list = new ListTemplate(ul);
+
 const forme = document.querySelector(".new-item-form") as HTMLFormElement;
 console.log(forme.children);
 
@@ -60,4 +65,6 @@ forme.addEventListener("submit", (e: Event) => {
 		doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
 	}
 	console.log(doc)
+
+	list.render(doc, type.value, "end");
 }); 
